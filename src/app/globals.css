@@ -18,7 +18,7 @@
 .loading-screen {
   position: fixed;
   inset: 0;
-  background: #160000;
+  background: #000000;
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -113,6 +113,14 @@ a:hover {
   line-height: 1.1;
 }
 
+.name-sub {
+  font-size: clamp(10px, 1.1vw, 13px);
+  color: #cc4400;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-top: 6px;
+}
+
 /* top middle: logo */
 .corner-logo {
   position: fixed;
@@ -176,7 +184,24 @@ a:hover {
   gap: 8px;
   text-align: left;
   max-width: 560px;
-  padding: 4px 0;
+  width: 100%;
+  max-height: 120px;
+  overflow-y: scroll;
+  padding: 4px 8px 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #0a5c0a #000000;
+}
+
+.portfolio-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.portfolio-list::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.portfolio-list::-webkit-scrollbar-thumb {
+  background: #0a5c0a;
 }
 
 .portfolio-list li {
@@ -193,6 +218,25 @@ a:hover {
   position: absolute;
   left: 0;
   color: #0a5c0a;
+}
+
+.scroll-hint {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #0a5c0a;
+  text-transform: uppercase;
+}
+
+.lou-orange {
+  color: #cc4400 !important;
+}
+
+.lou-orange:hover {
+  color: #ff6622 !important;
+}
+
+.p-desc {
+  color: #ffffff;
 }
 
 .p-year {

@@ -18,6 +18,7 @@ export default function HomePage() {
       {/* ── top left: name ── */}
       <div className="corner-name">
         <h1 className="site-title">LOKI<br />ZORRILLA</h1>
+        <p className="name-sub">Music Technology @ University of Oregon</p>
       </div>
 
       {/* ── top middle: image ── */}
@@ -33,7 +34,7 @@ export default function HomePage() {
       </div>
 
       {/* ── top right: copyright ── */}
-      <p className="copyright">&copy; 2025 loki zorrilla</p>
+      <p className="copyright">&copy; 2025 Loki Zorrilla</p>
 
       {/* ── centre: portfolio ── */}
       <div className="portfolio">
@@ -41,12 +42,12 @@ export default function HomePage() {
         <p className="portfolio-label">[ portfolio ]</p>
         <p className="deco">- - - - - - - - - - - - - - - - - - - - - - - - -</p>
         <ul className="portfolio-list">
-          <li><span className="p-year">2025 – present</span> Music Technology Major @ University of Oregon</li>
-          <li><span className="p-year">2026 – present</span> Loki Zorrilla, Once Was Lou — production, composition, mixing &amp; mastering, artwork &amp; videography</li>
-          <li><span className="p-year">2026</span> Skywatcher Stories — vocal processing, mixing</li>
-          <li><span className="p-year">2024 – 2025</span> lokikaos &amp; mrekk — production, mixing, mastering &amp; vocals</li>
-          <li><span className="p-year">2023</span> dokiww — closing soundtrack for issue 27</li>
+          <li><span className="p-year">2026 – present</span> Loki Zorrilla, Once Was Lou <span className="p-desc">— production, composition, mixing &amp; mastering, artwork &amp; videography</span></li>
+          <li><span className="p-year">2026</span> Skywatcher Stories <span className="p-desc">— vocal processing, mixing</span></li>
+          <li><span className="p-year">2024 – 2025</span> lokikaos &amp; mrekk <span className="p-desc">— production, mixing, mastering &amp; vocals</span></li>
+          <li><span className="p-year">2023</span> dokiww <span className="p-desc">— closing soundtrack for issue 27</span></li>
         </ul>
+        <p className="scroll-hint">▼ scroll</p>
         <p className="deco" style={{ marginBottom: 0 }}>- - - - - - - - - - - - - - - - - - - - - - - - -</p>
         <span className="cursor blink">_</span>
       </div>
@@ -55,11 +56,11 @@ export default function HomePage() {
       <div className="social-block">
         <p className="block-label">[ socials ]</p>
         <p className="block-heading">instagram</p>
-        <a className="social-link" href="https://instagram.com/lokizorrilla" target="_blank" rel="noopener noreferrer">&gt; loki zorrilla</a>
-        <a className="social-link" href="https://instagram.com/oncewaslou" target="_blank" rel="noopener noreferrer">&gt; once was lou</a>
+        <a className="social-link" href="https://instagram.com/lokizorrilla" target="_blank" rel="noopener noreferrer">&gt; @lokizorrilla</a>
+        <a className="social-link lou-orange" href="https://instagram.com/oncewaslou" target="_blank" rel="noopener noreferrer">&gt; @oncewaslou</a>
         <p className="block-heading" style={{ marginTop: '4px' }}>youtube</p>
-        <a className="social-link" href="https://youtube.com/@lokizorrilla" target="_blank" rel="noopener noreferrer">&gt; loki zorrilla</a>
-        <a className="social-link" href="https://youtube.com/@oncewaslou" target="_blank" rel="noopener noreferrer">&gt; once was lou</a>
+        <a className="social-link" href="https://youtube.com/@lokizorrilla" target="_blank" rel="noopener noreferrer">&gt; @lokizorrilla</a>
+        <a className="social-link lou-orange" href="https://youtube.com/@oncewaslou" target="_blank" rel="noopener noreferrer">&gt; @oncewaslou</a>
       </div>
 
       {/* ── bottom middle: music ── */}
@@ -77,12 +78,12 @@ export default function HomePage() {
             </a>
           </div>
           <div className="music-col">
-            <p className="music-artist">once was lou</p>
+            <p className="music-artist lou-orange">once was lou</p>
             <audio controls>
               <source src="/audio/once-was-lou.mp3" type="audio/mpeg" />
               <source src="/audio/once-was-lou.wav" type="audio/wav" />
             </audio>
-            <span className="spotify-link" style={{ color: '#0a5c0a' }}>&gt; spotify — coming soon</span>
+            <span className="spotify-link lou-orange">&gt; spotify — coming soon</span>
           </div>
         </div>
       </div>
@@ -93,7 +94,7 @@ export default function HomePage() {
         <p className="contact-line">
           <a href="mailto:lokizorrillaofficial@gmail.com">lokizorrillaofficial@gmail.com</a>
         </p>
-        <p className="contact-sub">mixing &amp; mastering / sync licensing / general business</p>
+        <p className="contact-sub">mixing &amp; mastering / general inquiries</p>
       </div>
 
     </main>
