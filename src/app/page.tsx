@@ -8,6 +8,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="page">
+      <div className="loading-screen">
+        <span className="loading-text">Loading</span>
+        <span className="loading-dot">.</span>
+        <span className="loading-dot">.</span>
+        <span className="loading-dot">.</span>
+      </div>
 
       {/* ── top left: name ── */}
       <div className="corner-name">
@@ -33,6 +39,14 @@ export default function HomePage() {
       <div className="portfolio">
         <p className="deco">- - - - - - - - - - - - - - - - - - - - - - - - -</p>
         <p className="portfolio-label">[ portfolio ]</p>
+        <p className="deco">- - - - - - - - - - - - - - - - - - - - - - - - -</p>
+        <ul className="portfolio-list">
+          <li><span className="p-year">2025 – present</span> Music Technology Major @ University of Oregon</li>
+          <li><span className="p-year">2026 – present</span> Loki Zorrilla, Once Was Lou — production, composition, mixing &amp; mastering, artwork &amp; videography</li>
+          <li><span className="p-year">2026</span> Skywatcher Stories — vocal processing, mixing</li>
+          <li><span className="p-year">2024 – 2025</span> lokikaos &amp; mrekk — production, mixing, mastering &amp; vocals</li>
+          <li><span className="p-year">2023</span> dokiww — closing soundtrack for issue 27</li>
+        </ul>
         <p className="deco" style={{ marginBottom: 0 }}>- - - - - - - - - - - - - - - - - - - - - - - - -</p>
         <span className="cursor blink">_</span>
       </div>
