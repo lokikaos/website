@@ -92,7 +92,7 @@ export default function HomePage() {
       <div className="contact-fixed">
         <p className="block-label">[ contact ]</p>
         <p className="contact-line">
-          <a href="mailto:lokithetrixter2@gmail.com">lokithetrixter2@gmail.com</a>
+          <a href="mailto:lokizorrillaofficial@gmail.com">lokizorrillaofficial@gmail.com</a>
         </p>
         <p className="contact-sub">mixing &amp; mastering / general inquiries</p>
       </div>
