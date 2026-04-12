@@ -83,7 +83,7 @@ export default function HomePage() {
               <source src="/audio/once-was-lou.mp3" type="audio/mpeg" />
               <source src="/audio/once-was-lou.wav" type="audio/wav" />
             </audio>
-            <span className="spotify-link lou-orange">&gt; spotify — coming soon</span>
+            <a className="spotify-link lou-orange" href="https://open.spotify.com/artist/64YZqY2yXyhkjewwm8kVbz" target="_blank" rel="noopener noreferrer">&gt; spotify</a>
           </div>
         </div>
       </div>
