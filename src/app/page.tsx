@@ -8,9 +8,8 @@ export const metadata: Metadata = {
   description: 'Photography and music by Loki Zorrilla. Based in Oregon.',
 }
 
-const PERFORMANCE_IMG = '/images/performance.jpg'
-// TODO: Add performance.jpg to /public/images/ — live shot of Loki on stage
-const HAS_PERFORMANCE_IMG = false
+const PERFORMANCE_IMG = '/images/performance.png'
+const HAS_PERFORMANCE_IMG = true
 
 export default function HomePage() {
   const previewPhotos = homeGrid.slice(0, 3)
