@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { InstagramIcon, MusicIcon, YoutubeIcon } from './Icons'
+import { InstagramIcon, MusicIcon, YoutubeIcon, MailIcon } from './Icons'
 
 export default function Footer() {
   return (
@@ -43,6 +43,15 @@ export default function Footer() {
             className="text-ink-soft hover:text-terracotta transition-colors"
           >
             <YoutubeIcon className="w-5 h-5" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:lokizorrillaofficial@gmail.com"
+            aria-label="Email"
+            className="text-ink-soft hover:text-terracotta transition-colors"
+          >
+            <MailIcon className="w-5 h-5" />
           </a>
         </li>
       </ul>

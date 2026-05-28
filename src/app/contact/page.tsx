@@ -18,39 +18,8 @@ export default function ContactPage() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 md:px-10 pb-16 grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-14">
-        <div className="text-center sm:text-left">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-3">
-            Photography
-          </p>
-          <a
-            href="mailto:photos@lokizorrilla.info"
-            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5 break-all"
-          >
-            photos@lokizorrilla.info
-          </a>
-        </div>
-
-        <div className="text-center sm:text-left">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-3">
-            Music & general
-          </p>
-          <a
-            href="mailto:lokizorrillaofficial@gmail.com"
-            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5 break-all"
-          >
-            lokizorrillaofficial@gmail.com
-          </a>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-2xl px-6 md:px-10 pb-32">
-        <div className="border-t border-line pt-14">
-          <h2 className="font-display text-2xl md:text-3xl tracking-wide italic text-center mb-10">
-            Or send a message
-          </h2>
-          <ContactForm />
-        </div>
+        <ContactForm />
       </section>
     </div>
   )
