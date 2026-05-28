@@ -83,20 +83,9 @@ export default function HomePage() {
       {/* ───── photography preview ───── */}
       <section className="border-t border-line/60">
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
-          <div className="flex items-end justify-between mb-3">
-            <h2 className="font-display text-3xl md:text-4xl tracking-wide italic">
-              Photography
-            </h2>
-            <Link
-              href="/photography"
-              className="text-sm tracking-[0.2em] uppercase text-ink-soft border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
-            >
-              See more
-            </Link>
-          </div>
-          <p className="text-ink-soft text-base md:text-lg mb-10">
-            The world through my lens — people &amp; places.
-          </p>
+          <h2 className="font-display text-3xl md:text-4xl tracking-wide italic text-center mb-10">
+            Photography
+          </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {previewPhotos.length > 0
@@ -123,25 +112,26 @@ export default function HomePage() {
                   />
                 ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/photography"
+              className="text-sm tracking-[0.2em] uppercase text-ink-soft border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+            >
+              See more
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ───── music preview ───── */}
       <section className="border-t border-line/60">
         <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 md:pt-28 pb-10 md:pb-14">
-          <div className="flex items-end justify-between mb-3">
-            <h2 className="font-display text-3xl md:text-4xl tracking-wide italic">
-              Music
-            </h2>
-            <Link
-              href="/music"
-              className="text-sm tracking-[0.2em] uppercase text-ink-soft border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
-            >
-              See more
-            </Link>
-          </div>
+          <h2 className="font-display text-3xl md:text-4xl tracking-wide italic text-center mb-10">
+            Music
+          </h2>
 
-          <div className="mt-10 flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center">
             {/* video thumbnail link */}
             <Link
               href="/music"
@@ -175,6 +165,15 @@ export default function HomePage() {
               My acoustic &amp; electronic audio art. A passion I&apos;ve had
               since youth.
             </p>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/music"
+              className="text-sm tracking-[0.2em] uppercase text-ink-soft border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+            >
+              See more
+            </Link>
           </div>
         </div>
       </section>
