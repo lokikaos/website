@@ -73,7 +73,7 @@ export default function AboutPage() {
                 <span className="block text-xs uppercase tracking-[0.2em] text-muted/70">
                   Making
                 </span>
-                <span className="text-ink">Music as Loki Zorrilla & Once Was Lou</span>
+                <span className="text-ink">Music as Loki Zorrilla</span>
               </li>
             </ul>
 
