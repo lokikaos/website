@@ -1,121 +1,144 @@
 import type { Metadata } from 'next'
-import MusicPlayer from '@/components/MusicPlayer'
-import ImagePlaceholder from '@/components/ImagePlaceholder'
-import { allTracks, albums } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Music',
-  description: 'Music by Loki Zorrilla and Once Was Lou — albums, singles, and complete discography.',
+  title: 'Music — Loki Zorrilla',
+  description: 'Music by Loki Zorrilla and Once Was Lou.',
 }
+
+const portfolio = [
+  {
+    year: '2026 — present',
+    title: 'Loki Zorrilla, Once Was Lou',
+    desc: 'production, composition, mixing & mastering, artwork & videography',
+  },
+  {
+    year: '2026',
+    title: 'Skywatcher Stories',
+    desc: 'vocal processing, mixing',
+  },
+  {
+    year: '2024 — 2025',
+    title: 'lokikaos & mrekk',
+    desc: 'production, mixing, mastering & vocals',
+  },
+  {
+    year: '2023',
+    title: 'dokiww',
+    desc: 'closing soundtrack for issue 27',
+  },
+]
+
+type Project = {
+  name: string
+  blurb: string
+  spotify: string
+  instagram: string
+  youtube: string
+  audio: string
+  accent?: string
+}
+
+const projects: Project[] = [
+  {
+    name: 'Loki Zorrilla',
+    blurb:
+      'Ambient, electronic, and acoustic work released under my own name.',
+    spotify: 'https://open.spotify.com/artist/2uAk8V7VwXZrkdMglBZR3T',
+    instagram: 'https://instagram.com/lokizorrilla',
+    youtube: 'https://youtube.com/@lokizorrilla',
+    audio: '/audio/loki-zorrilla.mp3',
+  },
+  {
+    name: 'Once Was Lou',
+    blurb:
+      'A second project — looser, warmer, and more pop-leaning.',
+    spotify: 'https://open.spotify.com/artist/64YZqY2yXyhkjewwm8kVbz',
+    instagram: 'https://instagram.com/oncewaslou',
+    youtube: 'https://youtube.com/@oncewaslou',
+    audio: '/audio/once-was-lou.mp3',
+    accent: 'terracotta',
+  },
+]
 
 export default function MusicPage() {
   return (
-    <main className="pt-16">
-      {/* Page Header */}
-      <section className="py-24 px-8 md:px-16 lg:px-24">
-        <h1
-          className="font-display font-light text-warm-white leading-none mb-6"
-          style={{ fontSize: 'clamp(4rem, 10vw, 9rem)' }}
-        >
+    <div className="fade-in-page">
+      <section className="mx-auto max-w-3xl px-6 md:px-10 py-20 md:py-28 text-center">
+        <h1 className="font-display text-4xl md:text-6xl tracking-wide italic">
           Music
         </h1>
-        <p className="font-sans text-base text-secondary max-w-md leading-relaxed">
-          All music by Loki Zorrilla and Once Was Lou. Stream on Spotify and Bandcamp, or listen
-          here.
+        <p className="mt-5 text-muted text-sm md:text-base tracking-wide">
+          Two projects, both ongoing.
         </p>
       </section>
 
-      {/* Music Player */}
-      <section className="px-8 md:px-16 lg:px-24 pb-24">
-        <MusicPlayer tracks={allTracks} accentColor="gold" />
-      </section>
+      <section className="mx-auto max-w-4xl px-6 md:px-10 pb-24 space-y-20 md:space-y-28">
+        {projects.map((p) => (
+          <div key={p.name}>
+            <h2 className="font-display text-3xl md:text-4xl tracking-wide">
+              {p.name}
+            </h2>
+            <p className="mt-3 text-ink-soft max-w-xl">{p.blurb}</p>
 
-      {/* Discography */}
-      <section className="py-24 px-8 md:px-16 lg:px-24 bg-surface">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="section-label mb-4">Discography</p>
-            <h2 className="font-display text-4xl font-light text-warm-white">Albums</h2>
-          </div>
-
-          {/* Filter Tabs (visual only) */}
-          <div className="flex items-center gap-1">
-            {['All', 'Loki Zorrilla', 'Once Was Lou'].map((filter, i) => (
-              <button
-                key={filter}
-                className={`px-4 py-2 font-sans text-xs tracking-[0.1em] uppercase transition-colors duration-200 ${
-                  i === 0
-                    ? 'bg-border-light text-warm-white'
-                    : 'text-muted hover:text-secondary'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Albums Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {albums.map((album) => (
-            <div key={album.id} className="group cursor-default">
-              <div className="relative">
-                <ImagePlaceholder
-                  aspectRatio="1/1"
-                  label={`[ ${album.title.toUpperCase()} ]`}
-                  className="w-full"
-                />
-                <div className="absolute top-3 right-3">
-                  <span
-                    className={`font-sans text-xs tracking-[0.15em] uppercase px-2 py-1 ${
-                      album.label === 'LZ'
-                        ? 'bg-gold/20 text-gold border border-gold/30'
-                        : 'bg-lou/20 text-lou border border-lou/30'
-                    }`}
-                  >
-                    {album.label}
-                  </span>
-                </div>
-              </div>
-              <div className="mt-4">
-                <h3 className="font-display text-xl text-warm-white group-hover:text-gold transition-colors duration-200">
-                  {album.title}
-                </h3>
-                <div className="flex items-center gap-4 mt-1">
-                  <span className="font-sans text-xs text-muted">{album.year}</span>
-                  <span className="font-sans text-xs text-muted">{album.trackCount} tracks</span>
-                  <span
-                    className={`font-sans text-xs ${album.label === 'LZ' ? 'text-gold-dim' : 'text-lou-dim'}`}
-                  >
-                    {album.artist === 'loki-zorrilla' ? 'Loki Zorrilla' : 'Once Was Lou'}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Streaming Links */}
-      <section className="py-24 px-8 md:px-16 lg:px-24">
-        <p className="section-label mb-8">Stream & Purchase</p>
-        <div className="flex flex-wrap gap-4">
-          {[
-            { name: 'Spotify', url: '#' },
-            { name: 'Apple Music', url: '#' },
-            { name: 'Bandcamp', url: '#' },
-            { name: 'SoundCloud', url: '#' },
-          ].map((platform) => (
-            <a
-              key={platform.name}
-              href={platform.url}
-              className="btn-outline"
+            <audio
+              controls
+              className="mt-6 w-full max-w-md"
+              preload="none"
             >
-              {platform.name} ↗
-            </a>
-          ))}
+              <source src={p.audio} type="audio/mpeg" />
+            </audio>
+
+            <div className="mt-5 flex flex-wrap gap-x-7 gap-y-2 text-sm tracking-wide">
+              <a
+                href={p.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+              >
+                Spotify ↗
+              </a>
+              <a
+                href={p.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+              >
+                Instagram ↗
+              </a>
+              <a
+                href={p.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+              >
+                YouTube ↗
+              </a>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* portfolio credits */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-4xl px-6 md:px-10 py-20 md:py-28">
+          <h3 className="font-display text-2xl md:text-3xl tracking-wide italic mb-10">
+            Production credits
+          </h3>
+          <ul className="space-y-7">
+            {portfolio.map((p) => (
+              <li key={p.year} className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-8">
+                <span className="text-muted text-sm tracking-[0.15em] uppercase pt-1">
+                  {p.year}
+                </span>
+                <div>
+                  <p className="font-display text-xl md:text-2xl">{p.title}</p>
+                  <p className="text-ink-soft text-sm md:text-base mt-1">{p.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
