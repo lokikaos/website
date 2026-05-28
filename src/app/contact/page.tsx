@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
-import { MailIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'Contact — Loki Zorrilla',
@@ -20,29 +19,27 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-3xl px-6 md:px-10 pb-16 grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-14">
-        <div className="flex flex-col items-center sm:items-start">
+        <div className="text-center sm:text-left">
           <p className="text-xs uppercase tracking-[0.2em] text-muted mb-3">
             Photography
           </p>
           <a
             href="mailto:photos@lokizorrilla.info"
-            aria-label="Email photos@lokizorrilla.info"
-            className="text-ink-soft hover:text-terracotta transition-colors"
+            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5 break-all"
           >
-            <MailIcon className="w-7 h-7" />
+            photos@lokizorrilla.info
           </a>
         </div>
 
-        <div className="flex flex-col items-center sm:items-start">
+        <div className="text-center sm:text-left">
           <p className="text-xs uppercase tracking-[0.2em] text-muted mb-3">
             Music & general
           </p>
           <a
             href="mailto:lokizorrillaofficial@gmail.com"
-            aria-label="Email lokizorrillaofficial@gmail.com"
-            className="text-ink-soft hover:text-terracotta transition-colors"
+            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5 break-all"
           >
-            <MailIcon className="w-7 h-7" />
+            lokizorrillaofficial@gmail.com
           </a>
         </div>
       </section>
