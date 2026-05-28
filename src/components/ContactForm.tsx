@@ -2,52 +2,59 @@
 
 import { useState } from 'react'
 
-// Where the form's email should land. Change here if you want it routed elsewhere.
-const TO_EMAIL = 'lokizorrillaofficial@gmail.com'
+/**
+ * Web3Forms access key.
+ * Get yours at https://web3forms.com — enter your email, paste the key here.
+ * Falls back to NEXT_PUBLIC_WEB3FORMS_KEY env var if set on Vercel.
+ */
+const ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? '0780c24d-2e91-43af-948d-eef274054a9d'
+
+type Status = 'idle' | 'sending' | 'sent' | 'error'
 
 export default function ContactForm() {
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState<string>('')
 
-  const handle = (e: React.FormEvent<HTMLFormElement>) => {
+  const handle = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setStatus('sending')
+    setErrorMsg('')
 
     const form = e.currentTarget
-    const data = new FormData(form)
-    const name = (data.get('name') as string || '').trim()
-    const email = (data.get('email') as string || '').trim()
-    const message = (data.get('message') as string || '').trim()
+    const fd = new FormData(form)
+    fd.append('access_key', ACCESS_KEY)
+    fd.append('subject', `Website message from ${fd.get('name')}`)
+    fd.append('from_name', 'lokizorrilla.info contact form')
 
-    const subject = `Website message from ${name || 'a visitor'}`
-    const body = `${message}\n\n— ${name}${email ? ` (${email})` : ''}`
-
-    const mailto =
-      `mailto:${TO_EMAIL}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`
-
-    // open the visitor's mail client with the message pre-filled
-    window.location.href = mailto
-    setSent(true)
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: fd,
+      })
+      const data = await res.json()
+      if (data?.success) {
+        setStatus('sent')
+        form.reset()
+      } else {
+        setStatus('error')
+        setErrorMsg(data?.message || 'Something went wrong. Try again.')
+      }
+    } catch {
+      setStatus('error')
+      setErrorMsg('Network error. Try again.')
+    }
   }
 
-  if (sent) {
+  if (status === 'sent') {
     return (
       <div className="text-center space-y-4">
         <p className="font-display text-xl md:text-2xl italic text-terracotta">
-          Your mail client should have opened.
-        </p>
-        <p className="text-sm text-muted">
-          If nothing happened, email directly:{' '}
-          <a
-            href={`mailto:${TO_EMAIL}`}
-            className="underline hover:text-terracotta"
-          >
-            {TO_EMAIL}
-          </a>
+          Thanks — I&apos;ll be in touch.
         </p>
         <button
           type="button"
-          onClick={() => setSent(false)}
+          onClick={() => setStatus('idle')}
           className="text-xs tracking-[0.2em] uppercase border-b border-ink pb-0.5 hover:text-terracotta hover:border-terracotta"
         >
           Send another
@@ -97,12 +104,26 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* honeypot — bots fill this, humans don't */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+      />
+
+      {status === 'error' && (
+        <p className="text-sm text-terracotta text-center">{errorMsg}</p>
+      )}
+
       <div className="pt-2 text-center">
         <button
           type="submit"
-          className="text-sm tracking-[0.2em] uppercase border border-ink px-8 py-3 hover:bg-ink hover:text-sand transition-colors"
+          disabled={status === 'sending'}
+          className="text-sm tracking-[0.2em] uppercase border border-ink px-8 py-3 hover:bg-ink hover:text-sand transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Send
+          {status === 'sending' ? 'Sending…' : 'Send'}
         </button>
       </div>
     </form>
