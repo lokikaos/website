@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const portfolio = [
   {
     year: '2026 — present',
-    title: 'Loki Zorrilla, Once Was Lou',
+    title: 'Loki Zorrilla',
     desc: 'production, composition, mixing & mastering, artwork & videography',
   },
   {
@@ -49,16 +49,6 @@ const projects: Project[] = [
     youtube: 'https://youtube.com/@lokizorrilla',
     audio: '/audio/loki-zorrilla.mp3',
   },
-  {
-    name: 'Once Was Lou',
-    blurb:
-      'A second project — looser, warmer, and more pop-leaning.',
-    spotify: 'https://open.spotify.com/artist/64YZqY2yXyhkjewwm8kVbz',
-    instagram: 'https://instagram.com/oncewaslou',
-    youtube: 'https://youtube.com/@oncewaslou',
-    audio: '/audio/once-was-lou.mp3',
-    accent: 'terracotta',
-  },
 ]
 
 export default function MusicPage() {
@@ -69,7 +59,7 @@ export default function MusicPage() {
           Music
         </h1>
         <p className="mt-5 text-muted text-sm md:text-base tracking-wide">
-          Two projects, both ongoing.
+          Music by Loki Zorrilla.
         </p>
       </section>
 

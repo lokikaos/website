@@ -128,7 +128,7 @@ export default function HomePage() {
 
       {/* ───── music preview ───── */}
       <section className="border-t border-line/60">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 md:pt-28 pb-10 md:pb-14">
           <div className="flex items-end justify-between mb-3">
             <h2 className="font-display text-3xl md:text-4xl tracking-wide italic">
               Music
@@ -142,8 +142,8 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-            {/* left: blurb */}
-            <div>
+            {/* left: blurb (vertically centered relative to video) */}
+            <div className="flex flex-col justify-center self-center">
               <h3 className="font-display text-2xl md:text-3xl tracking-wide">
                 Loki Zorrilla
               </h3>
@@ -157,17 +157,15 @@ export default function HomePage() {
             <Link
               href="/music"
               aria-label="Watch on the Music page"
-              className="group relative block w-full aspect-video overflow-hidden bg-sand-deep"
+              className="group relative block w-full aspect-video overflow-hidden"
             >
               <Image
                 src="/images/thumbnail.png"
                 alt="Music video thumbnail"
                 fill
                 sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
               />
-              {/* dim overlay */}
-              <div className="absolute inset-0 bg-ink/15 group-hover:bg-ink/25 transition-colors" />
               {/* play button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-sand/90 text-ink shadow-lg group-hover:bg-sand group-hover:scale-105 transition-all">
