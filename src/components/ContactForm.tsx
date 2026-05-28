@@ -2,19 +2,57 @@
 
 import { useState } from 'react'
 
+// Where the form's email should land. Change here if you want it routed elsewhere.
+const TO_EMAIL = 'lokizorrillaofficial@gmail.com'
+
 export default function ContactForm() {
   const [sent, setSent] = useState(false)
 
   const handle = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const name = (data.get('name') as string || '').trim()
+    const email = (data.get('email') as string || '').trim()
+    const message = (data.get('message') as string || '').trim()
+
+    const subject = `Website message from ${name || 'a visitor'}`
+    const body = `${message}\n\n— ${name}${email ? ` (${email})` : ''}`
+
+    const mailto =
+      `mailto:${TO_EMAIL}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`
+
+    // open the visitor's mail client with the message pre-filled
+    window.location.href = mailto
     setSent(true)
   }
 
   if (sent) {
     return (
-      <p className="text-center font-display text-xl md:text-2xl italic text-terracotta">
-        Thanks — I&apos;ll be in touch.
-      </p>
+      <div className="text-center space-y-4">
+        <p className="font-display text-xl md:text-2xl italic text-terracotta">
+          Your mail client should have opened.
+        </p>
+        <p className="text-sm text-muted">
+          If nothing happened, email directly:{' '}
+          <a
+            href={`mailto:${TO_EMAIL}`}
+            className="underline hover:text-terracotta"
+          >
+            {TO_EMAIL}
+          </a>
+        </p>
+        <button
+          type="button"
+          onClick={() => setSent(false)}
+          className="text-xs tracking-[0.2em] uppercase border-b border-ink pb-0.5 hover:text-terracotta hover:border-terracotta"
+        >
+          Send another
+        </button>
+      </div>
     )
   }
 
