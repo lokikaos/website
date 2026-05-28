@@ -160,11 +160,6 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* blurb under video */}
-            <p className="mt-8 text-ink-soft text-base md:text-lg leading-relaxed max-w-xl">
-              My acoustic &amp; electronic audio art. A passion I&apos;ve had
-              since youth.
-            </p>
           </div>
 
           <div className="mt-12 text-center">
