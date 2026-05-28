@@ -2,14 +2,12 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { homeGrid, EMPTY_PREVIEW_TILES } from '@/lib/photos'
+import { InstagramIcon, MusicIcon, YoutubeIcon, SpotifyIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'Loki Zorrilla — Photography & Music',
   description: 'Photography and music by Loki Zorrilla. Based in Oregon.',
 }
-
-const PERFORMANCE_IMG = '/images/performance.png'
-const HAS_PERFORMANCE_IMG = true
 
 export default function HomePage() {
   const previewPhotos = homeGrid.slice(0, 3)
@@ -19,21 +17,16 @@ export default function HomePage() {
       {/* ───── hero: split panel ───── */}
       <section className="mx-auto max-w-7xl px-6 md:px-10 pt-6 md:pt-10 pb-20 md:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 items-center">
-          {/* left: performance image */}
+          {/* left: intro image */}
           <div className="relative w-full aspect-[4/5] bg-sand-deep">
-            {HAS_PERFORMANCE_IMG ? (
-              <Image
-                src={PERFORMANCE_IMG}
-                alt="Loki performing live"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 60vw"
-                className="object-cover"
-              />
-            ) : (
-              /* Clean placeholder — no stock image. Replace when /public/images/performance.jpg exists. */
-              <div className="absolute inset-0" aria-hidden />
-            )}
+            <Image
+              src="/images/intro.jpeg"
+              alt="Loki Zorrilla"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 60vw"
+              className="object-cover"
+            />
           </div>
 
           {/* right: quote + socials */}
@@ -43,15 +36,16 @@ export default function HomePage() {
               <span className="italic text-terracotta">Based in Oregon.</span>
             </p>
 
-            <ul className="mt-10 space-y-3 text-sm tracking-wide">
+            <ul className="mt-10 flex items-center gap-6">
               <li>
                 <a
                   href="https://instagram.com/capturedby.loki"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                  aria-label="Photography Instagram (@capturedby.loki)"
+                  className="text-ink-soft hover:text-terracotta transition-colors"
                 >
-                  Instagram — @capturedby.loki (photography)
+                  <InstagramIcon className="w-6 h-6" />
                 </a>
               </li>
               <li>
@@ -59,9 +53,10 @@ export default function HomePage() {
                   href="https://instagram.com/lokizorrilla"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                  aria-label="Music Instagram (@lokizorrilla)"
+                  className="text-ink-soft hover:text-terracotta transition-colors"
                 >
-                  Instagram — @lokizorrilla (music)
+                  <MusicIcon className="w-6 h-6" />
                 </a>
               </li>
               <li>
@@ -69,9 +64,10 @@ export default function HomePage() {
                   href="https://youtube.com/@lokizorrilla"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                  aria-label="YouTube"
+                  className="text-ink-soft hover:text-terracotta transition-colors"
                 >
-                  YouTube — @lokizorrilla
+                  <YoutubeIcon className="w-6 h-6" />
                 </a>
               </li>
             </ul>
@@ -153,9 +149,10 @@ export default function HomePage() {
                 href="https://open.spotify.com/artist/2uAk8V7VwXZrkdMglBZR3T"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-block text-sm tracking-wide border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                aria-label="Loki Zorrilla on Spotify"
+                className="mt-5 inline-block text-ink-soft hover:text-terracotta transition-colors"
               >
-                Spotify ↗
+                <SpotifyIcon className="w-6 h-6" />
               </a>
             </div>
 
@@ -170,9 +167,10 @@ export default function HomePage() {
                 href="https://open.spotify.com/artist/64YZqY2yXyhkjewwm8kVbz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-block text-sm tracking-wide border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                aria-label="Once Was Lou on Spotify"
+                className="mt-5 inline-block text-ink-soft hover:text-terracotta transition-colors"
               >
-                Spotify ↗
+                <SpotifyIcon className="w-6 h-6" />
               </a>
             </div>
           </div>

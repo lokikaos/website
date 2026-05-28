@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
+import { MailIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'Contact — Loki Zorrilla',
@@ -18,44 +19,31 @@ export default function ContactPage() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 md:px-10 pb-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-2">
+      <section className="mx-auto max-w-3xl px-6 md:px-10 pb-16 grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-14">
+        <div className="flex flex-col items-center sm:items-start">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-3">
             Photography
           </p>
           <a
             href="mailto:photos@lokizorrilla.info"
-            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta"
+            aria-label="Email photos@lokizorrilla.info"
+            className="text-ink-soft hover:text-terracotta transition-colors"
           >
-            photos@lokizorrilla.info
+            <MailIcon className="w-7 h-7" />
           </a>
         </div>
 
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-2">
+        <div className="flex flex-col items-center sm:items-start">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-3">
             Music & general
           </p>
           <a
             href="mailto:lokizorrillaofficial@gmail.com"
-            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta break-all"
+            aria-label="Email lokizorrillaofficial@gmail.com"
+            className="text-ink-soft hover:text-terracotta transition-colors"
           >
-            lokizorrillaofficial@gmail.com
+            <MailIcon className="w-7 h-7" />
           </a>
-        </div>
-
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted mb-2">
-            Tips & support
-          </p>
-          <a
-            href="https://venmo.com/lokikaos"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-display text-lg md:text-xl border-b border-transparent hover:border-terracotta hover:text-terracotta"
-          >
-            @lokikaos
-          </a>
-          <p className="mt-1 text-sm text-muted italic">Pay what you feel.</p>
         </div>
       </section>
 

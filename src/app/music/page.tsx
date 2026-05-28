@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { MusicIcon, YoutubeIcon, SpotifyIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'Music — Loki Zorrilla',
@@ -88,30 +89,33 @@ export default function MusicPage() {
               <source src={p.audio} type="audio/mpeg" />
             </audio>
 
-            <div className="mt-5 flex flex-wrap gap-x-7 gap-y-2 text-sm tracking-wide">
+            <div className="mt-5 flex items-center gap-6">
               <a
                 href={p.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                aria-label={`${p.name} on Spotify`}
+                className="text-ink-soft hover:text-terracotta transition-colors"
               >
-                Spotify ↗
+                <SpotifyIcon className="w-6 h-6" />
               </a>
               <a
                 href={p.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                aria-label={`${p.name} on Instagram`}
+                className="text-ink-soft hover:text-terracotta transition-colors"
               >
-                Instagram ↗
+                <MusicIcon className="w-6 h-6" />
               </a>
               <a
                 href={p.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
+                aria-label={`${p.name} on YouTube`}
+                className="text-ink-soft hover:text-terracotta transition-colors"
               >
-                YouTube ↗
+                <YoutubeIcon className="w-6 h-6" />
               </a>
             </div>
           </div>

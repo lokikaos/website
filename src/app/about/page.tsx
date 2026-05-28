@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import { InstagramIcon, MusicIcon, YoutubeIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'About — Loki Zorrilla',
@@ -10,8 +12,17 @@ export default function AboutPage() {
     <div className="fade-in-page">
       <section className="mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
-          {/* portrait placeholder — TODO: add real portrait to /public/images/ */}
-          <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0 bg-sand-deep" aria-hidden />
+          {/* portrait */}
+          <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0 bg-sand-deep overflow-hidden">
+            <Image
+              src="/images/performance.png"
+              alt="Loki performing live"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
 
           {/* bio */}
           <div>
@@ -63,32 +74,41 @@ export default function AboutPage() {
               </li>
             </ul>
 
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm tracking-wide">
-              <a
-                href="https://instagram.com/capturedby.loki"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
-              >
-                @capturedby.loki (photo) ↗
-              </a>
-              <a
-                href="https://instagram.com/lokizorrilla"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
-              >
-                @lokizorrilla (music) ↗
-              </a>
-              <a
-                href="https://youtube.com/@lokizorrilla"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
-              >
-                YouTube ↗
-              </a>
-            </div>
+            <ul className="mt-10 flex items-center gap-6">
+              <li>
+                <a
+                  href="https://instagram.com/capturedby.loki"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Photography Instagram (@capturedby.loki)"
+                  className="text-ink-soft hover:text-terracotta transition-colors"
+                >
+                  <InstagramIcon className="w-6 h-6" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/lokizorrilla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Music Instagram (@lokizorrilla)"
+                  className="text-ink-soft hover:text-terracotta transition-colors"
+                >
+                  <MusicIcon className="w-6 h-6" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://youtube.com/@lokizorrilla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="text-ink-soft hover:text-terracotta transition-colors"
+                >
+                  <YoutubeIcon className="w-6 h-6" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
