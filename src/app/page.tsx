@@ -141,29 +141,18 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-            {/* left: blurb (vertically centered relative to video) */}
-            <div className="flex flex-col justify-center self-center">
-              <h3 className="font-display text-2xl md:text-3xl tracking-wide">
-                Loki Zorrilla
-              </h3>
-              <p className="mt-4 text-ink-soft text-base md:text-lg leading-relaxed max-w-md">
-                My acoustic &amp; electronic audio art. A passion I&apos;ve had
-                since youth.
-              </p>
-            </div>
-
-            {/* right: video thumbnail link */}
+          <div className="mt-10 flex flex-col items-center text-center">
+            {/* video thumbnail link */}
             <Link
               href="/music"
               aria-label="Watch on the Music page"
-              className="group relative block w-full aspect-video overflow-hidden"
+              className="group relative block w-full max-w-3xl aspect-video overflow-hidden"
             >
               <Image
                 src="/images/thumbnail.png"
                 alt="Music video thumbnail"
                 fill
-                sizes="(max-width: 768px) 100vw, 45vw"
+                sizes="(max-width: 768px) 100vw, 60vw"
                 className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
               />
               {/* play button */}
@@ -180,6 +169,12 @@ export default function HomePage() {
                 </span>
               </div>
             </Link>
+
+            {/* blurb under video */}
+            <p className="mt-8 text-ink-soft text-base md:text-lg leading-relaxed max-w-xl">
+              My acoustic &amp; electronic audio art. A passion I&apos;ve had
+              since youth.
+            </p>
           </div>
         </div>
       </section>

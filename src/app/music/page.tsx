@@ -3,7 +3,7 @@ import { MusicIcon, YoutubeIcon, SpotifyIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'Music — Loki Zorrilla',
-  description: 'Music by Loki Zorrilla and Once Was Lou.',
+  description: 'Music by Loki Zorrilla.',
 }
 
 const portfolio = [
@@ -18,38 +18,22 @@ const portfolio = [
     desc: 'vocal processing, mixing',
   },
   {
+    year: '2026',
+    title: 'Peaking Down',
+    desc: 'vocalist',
+  },
+  {
     year: '2024 — 2025',
     title: 'lokikaos & mrekk',
     desc: 'production, mixing, mastering & vocals',
   },
-  {
-    year: '2023',
-    title: 'dokiww',
-    desc: 'closing soundtrack for issue 27',
-  },
 ]
 
-type Project = {
-  name: string
-  blurb: string
-  spotify: string
-  instagram: string
-  youtube: string
-  audio: string
-  accent?: string
+const links = {
+  spotify: 'https://open.spotify.com/artist/2uAk8V7VwXZrkdMglBZR3T',
+  instagram: 'https://instagram.com/lokizorrilla',
+  youtube: 'https://youtube.com/@lokizorrilla',
 }
-
-const projects: Project[] = [
-  {
-    name: 'Loki Zorrilla',
-    blurb:
-      'Ambient, electronic, and acoustic work released under my own name.',
-    spotify: 'https://open.spotify.com/artist/2uAk8V7VwXZrkdMglBZR3T',
-    instagram: 'https://instagram.com/lokizorrilla',
-    youtube: 'https://youtube.com/@lokizorrilla',
-    audio: '/audio/loki-zorrilla.mp3',
-  },
-]
 
 export default function MusicPage() {
   return (
@@ -58,14 +42,14 @@ export default function MusicPage() {
         <h1 className="font-display text-4xl md:text-6xl tracking-wide italic">
           Music
         </h1>
-        <p className="mt-5 text-muted text-sm md:text-base tracking-wide">
-          Music by Loki Zorrilla.
+        <p className="mt-3 font-display text-xl md:text-2xl italic text-ink-soft">
+          By Loki Zorrilla
         </p>
       </section>
 
-      {/* featured video */}
-      <section className="mx-auto max-w-4xl px-6 md:px-10 pb-20 md:pb-24">
-        <div className="relative w-full aspect-video overflow-hidden bg-ink">
+      {/* featured video + text + socials */}
+      <section className="mx-auto max-w-4xl px-6 md:px-10 pb-24">
+        <div className="relative w-full aspect-video overflow-hidden">
           <iframe
             src="https://www.youtube.com/embed/sxdg0K9YQsg"
             title="Loki Zorrilla — featured music video"
@@ -74,55 +58,41 @@ export default function MusicPage() {
             className="absolute inset-0 w-full h-full"
           />
         </div>
-      </section>
 
-      <section className="mx-auto max-w-4xl px-6 md:px-10 pb-24 space-y-20 md:space-y-28">
-        {projects.map((p) => (
-          <div key={p.name}>
-            <h2 className="font-display text-3xl md:text-4xl tracking-wide">
-              {p.name}
-            </h2>
-            <p className="mt-3 text-ink-soft max-w-xl">{p.blurb}</p>
+        <p className="mt-10 text-ink-soft text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto">
+          My acoustic &amp; electronic audio art. A passion I&apos;ve had since
+          youth.
+        </p>
 
-            <audio
-              controls
-              className="mt-6 w-full max-w-md"
-              preload="none"
-            >
-              <source src={p.audio} type="audio/mpeg" />
-            </audio>
-
-            <div className="mt-5 flex items-center gap-6">
-              <a
-                href={p.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${p.name} on Spotify`}
-                className="text-ink-soft hover:text-terracotta transition-colors"
-              >
-                <SpotifyIcon className="w-6 h-6" />
-              </a>
-              <a
-                href={p.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${p.name} on Instagram`}
-                className="text-ink-soft hover:text-terracotta transition-colors"
-              >
-                <MusicIcon className="w-6 h-6" />
-              </a>
-              <a
-                href={p.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${p.name} on YouTube`}
-                className="text-ink-soft hover:text-terracotta transition-colors"
-              >
-                <YoutubeIcon className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
-        ))}
+        <div className="mt-8 flex items-center justify-center gap-7">
+          <a
+            href={links.spotify}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Loki Zorrilla on Spotify"
+            className="text-ink-soft hover:text-terracotta transition-colors"
+          >
+            <SpotifyIcon className="w-6 h-6" />
+          </a>
+          <a
+            href={links.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Loki Zorrilla on Instagram"
+            className="text-ink-soft hover:text-terracotta transition-colors"
+          >
+            <MusicIcon className="w-6 h-6" />
+          </a>
+          <a
+            href={links.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Loki Zorrilla on YouTube"
+            className="text-ink-soft hover:text-terracotta transition-colors"
+          >
+            <YoutubeIcon className="w-6 h-6" />
+          </a>
+        </div>
       </section>
 
       {/* portfolio credits */}
@@ -133,7 +103,7 @@ export default function MusicPage() {
           </h3>
           <ul className="space-y-7">
             {portfolio.map((p) => (
-              <li key={p.year} className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-8">
+              <li key={p.year + p.title} className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-8">
                 <span className="text-muted text-sm tracking-[0.15em] uppercase pt-1">
                   {p.year}
                 </span>
