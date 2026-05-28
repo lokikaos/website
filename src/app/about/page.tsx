@@ -15,7 +15,7 @@ export default function AboutPage() {
           {/* portrait */}
           <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0 bg-sand-deep overflow-hidden">
             <Image
-              src="/images/about.jpeg"
+              src="/images/intro_bw.jpg"
               alt="Loki Zorrilla"
               fill
               priority

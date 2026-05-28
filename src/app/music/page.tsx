@@ -73,6 +73,19 @@ export default function MusicPage() {
         </p>
       </section>
 
+      {/* featured video */}
+      <section className="mx-auto max-w-4xl px-6 md:px-10 pb-20 md:pb-24">
+        <div className="relative w-full aspect-video overflow-hidden bg-ink">
+          <iframe
+            src="https://www.youtube.com/embed/sxdg0K9YQsg"
+            title="Loki Zorrilla — featured music video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+      </section>
+
       <section className="mx-auto max-w-4xl px-6 md:px-10 pb-24 space-y-20 md:space-y-28">
         {projects.map((p) => (
           <div key={p.name}>
