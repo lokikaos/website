@@ -29,7 +29,7 @@ export default function Nav() {
   }, [open])
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-sand/90 backdrop-blur-sm">
+    <header className="relative z-50 bg-sand">
       <div className="mx-auto max-w-7xl px-6 md:px-10 h-20 flex items-center justify-between">
         <Link
           href="/"
@@ -56,8 +56,9 @@ export default function Nav() {
         {/* mobile hamburger */}
         <button
           aria-label="Menu"
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
+          className="md:hidden relative z-[60] flex flex-col gap-1.5 p-2 -mr-2"
         >
           <span
             className={`block w-6 h-px bg-ink transition-transform ${
@@ -77,13 +78,13 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* mobile drawer */}
+      {/* mobile drawer — fixed full-screen overlay, fully contained */}
       <div
-        className={`md:hidden fixed inset-x-0 top-20 bottom-0 bg-sand transition-transform duration-300 ${
-          open ? 'translate-x-0' : 'translate-x-full'
+        className={`md:hidden fixed inset-0 z-[55] bg-sand transition-opacity duration-300 ${
+          open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <nav className="flex flex-col items-center justify-center h-full gap-8 text-xl font-display">
+        <nav className="flex flex-col items-center justify-center w-full h-full gap-10 text-2xl font-display px-6">
           {links.map((l) => (
             <Link
               key={l.href}

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'About — Loki Zorrilla',
@@ -11,17 +10,8 @@ export default function AboutPage() {
     <div className="fade-in-page">
       <section className="mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
-          {/* portrait */}
-          <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0">
-            <Image
-              src="https://picsum.photos/id/64/800/1000"
-              alt="Portrait of Loki Zorrilla"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-              priority
-            />
-          </div>
+          {/* portrait placeholder — TODO: add real portrait to /public/images/ */}
+          <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0 bg-sand-deep" aria-hidden />
 
           {/* bio */}
           <div>

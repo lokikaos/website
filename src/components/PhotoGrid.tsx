@@ -41,6 +41,21 @@ export default function PhotoGrid({ photos }: Props) {
 
   const current = activeIdx !== null ? photos[activeIdx] : null
 
+  if (photos.length === 0) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {/* TODO: Add real photos to /public/images/ and populate src/lib/photos.ts */}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-full aspect-[4/5] bg-sand-deep"
+            aria-hidden
+          />
+        ))}
+      </div>
+    )
+  }
+
   return (
     <>
       <div
