@@ -32,18 +32,21 @@ export default function AboutPage() {
 
             <div className="mt-8 space-y-5 text-ink-soft text-base md:text-lg leading-relaxed max-w-xl">
               <p>
-                I&apos;m Loki Zorrilla — a photographer, musician, and producer
-                based in Oregon. I shoot people, places, and moments worth
-                keeping.
+                I&apos;m Loki Zorrilla, a photographer, musician, and artist
+                based in Oregon. My photography is mainly centered around the
+                human nature — faces, gatherings, and those things which
+                symbolize what it means to be unique and alive.
               </p>
               <p>
-                I also make music under my own name and as Once Was Lou,
-                covering production, composition, mixing, and mastering. I
-                study Music Technology at the University of Oregon.
+                I am also an independent musician that produces, composes, and
+                engineers all of the music I make. I occasionally work with
+                bands, and love to perform live whenever I have the
+                opportunity!
               </p>
               <p>
-                Most days I&apos;m somewhere between Eugene and Bend — chasing
-                light, recording something, or both.
+                Most days I&apos;m somewhere between Eugene and Bend — rock
+                climbing, recording new music, or capturing the blissful
+                nature of life behind the lens of a camera.
               </p>
             </div>
 
@@ -58,7 +61,7 @@ export default function AboutPage() {
                 <span className="block text-xs uppercase tracking-[0.2em] text-muted/70">
                   Studying
                 </span>
-                <span className="text-ink">Music Technology, UO</span>
+                <span className="text-ink">Journalism, UO</span>
               </li>
               <li>
                 <span className="block text-xs uppercase tracking-[0.2em] text-muted/70">

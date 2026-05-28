@@ -60,8 +60,7 @@ export default function MusicPage() {
         </div>
 
         <p className="mt-10 text-ink-soft text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto">
-          My acoustic &amp; electronic audio art. A passion I&apos;ve had since
-          youth.
+          My latest single.
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-7">
