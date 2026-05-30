@@ -14,7 +14,10 @@ export default function ContactPage() {
           Contact
         </h1>
         <p className="mt-5 text-muted text-sm md:text-base tracking-wide">
-          Reach out for photo shoots, music inquiries, or anything in between.
+          Reach out! I specialize in{' '}
+          <span className="italic text-terracotta">headshots</span>,{' '}
+          <span className="italic text-terracotta">family</span>, and{' '}
+          <span className="italic text-terracotta">event</span> photography.
         </p>
       </section>
 

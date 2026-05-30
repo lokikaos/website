@@ -41,7 +41,7 @@ export default function HomePage() {
               Based in Oregon
             </p>
 
-            <ul className="mt-10 flex items-center gap-6">
+            <ul className="mt-6 flex items-center gap-6">
               <li>
                 <a
                   href="https://instagram.com/capturedby.loki"

@@ -35,30 +35,22 @@ img {
    VINTAGE 80s TREATMENT
 ═══════════════════════════════════════ */
 
-/* film grain — fixed overlay on top of everything */
+/* film grain — static, fine, neutral grayscale noise.
+   soft-light blend means it adds texture (both highlights and shadows)
+   without simply darkening the page. */
 .grain-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.16;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0 0.04 0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 220px 220px;
-  animation: grain-shift 1.4s steps(6) infinite;
+  opacity: 0.45;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
 }
 
-/* tiny grain reposition every frame so it feels alive */
-@keyframes grain-shift {
-  0%   { transform: translate(0,0); }
-  20%  { transform: translate(-3%, 2%); }
-  40%  { transform: translate(2%, -4%); }
-  60%  { transform: translate(-1%, -2%); }
-  80%  { transform: translate(3%, 1%); }
-  100% { transform: translate(0,0); }
-}
-
-/* warm vignette darkening the corners */
+/* very subtle warm vignette — frames the page like an aged print,
+   without noticeably dimming the center */
 .vignette-overlay {
   position: fixed;
   inset: 0;
@@ -67,8 +59,8 @@ img {
   background:
     radial-gradient(
       ellipse at center,
-      transparent 50%,
-      rgba(60, 38, 20, 0.18) 100%
+      transparent 62%,
+      rgba(45, 28, 14, 0.12) 100%
     );
 }
 
