@@ -7,17 +7,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        sand: '#F5F0E8',
-        'sand-deep': '#EDE5D6',
-        ink: '#1C1C1A',
-        'ink-soft': '#3A3A36',
-        muted: '#7A746C',
-        terracotta: '#B5613A',
-        olive: '#8B8255',
-        line: '#D8D0C0',
+        // warmer, more aged palette
+        sand: '#ECE2CB',
+        'sand-deep': '#D9CDB1',
+        ink: '#1A1612',
+        'ink-soft': '#3C342A',
+        muted: '#7A6E5C',
+        terracotta: '#A04B2D',
+        olive: '#7A734A',
+        line: '#BFB29A',
       },
       fontFamily: {
-        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        display: ['var(--font-playfair)', 'Times New Roman', 'serif'],
         sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
       },
       animation: {

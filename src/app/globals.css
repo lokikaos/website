@@ -9,8 +9,8 @@
 }
 
 html, body {
-  background: #F5F0E8;
-  color: #1C1C1A;
+  background: #ECE2CB;
+  color: #1A1612;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,10 +26,70 @@ img {
   display: block;
 }
 
-/* selection */
 ::selection {
-  background: #B5613A;
-  color: #F5F0E8;
+  background: #A04B2D;
+  color: #ECE2CB;
+}
+
+/* ═══════════════════════════════════════
+   VINTAGE 80s TREATMENT
+═══════════════════════════════════════ */
+
+/* film grain — fixed overlay on top of everything */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0 0.04 0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  animation: grain-shift 1.4s steps(6) infinite;
+}
+
+/* tiny grain reposition every frame so it feels alive */
+@keyframes grain-shift {
+  0%   { transform: translate(0,0); }
+  20%  { transform: translate(-3%, 2%); }
+  40%  { transform: translate(2%, -4%); }
+  60%  { transform: translate(-1%, -2%); }
+  80%  { transform: translate(3%, 1%); }
+  100% { transform: translate(0,0); }
+}
+
+/* warm vignette darkening the corners */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(60, 38, 20, 0.18) 100%
+    );
+}
+
+/* photo frames — thin hairline edge like a contact sheet print */
+.photo-frame {
+  box-shadow:
+    inset 0 0 0 1px rgba(26, 22, 18, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.4),
+    0 14px 30px -18px rgba(26, 22, 18, 0.5);
+}
+
+/* slightly warm, vintage cast on all photographic images */
+.photo-frame img,
+img[src*="/images/"]:not([alt=""]) {
+  filter: saturate(0.85) contrast(1.06) sepia(0.07);
+}
+
+/* nav + footer subtle paper edge */
+header,
+footer {
+  position: relative;
 }
 
 /* page-load fade */
@@ -42,7 +102,7 @@ img {
   to   { opacity: 1; }
 }
 
-/* reveal on scroll (uses IntersectionObserver class toggle) */
+/* reveal on scroll */
 .reveal {
   opacity: 0;
   transform: translateY(20px);

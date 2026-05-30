@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { InstagramIcon, MusicIcon, YoutubeIcon } from '@/components/Icons'
+import { InstagramIcon, YoutubeIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
   title: 'About — Loki Zorrilla',
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-6 md:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
           {/* portrait */}
-          <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0 bg-sand-deep overflow-hidden">
+          <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:mx-0 bg-sand-deep overflow-hidden photo-frame">
             <Image
               src="/images/intro_bw.jpg"
               alt="Loki Zorrilla"
@@ -83,21 +83,10 @@ export default function AboutPage() {
                   href="https://instagram.com/capturedby.loki"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Photography Instagram (@capturedby.loki)"
+                  aria-label="Instagram (@capturedby.loki)"
                   className="text-ink-soft hover:text-terracotta transition-colors"
                 >
                   <InstagramIcon className="w-6 h-6" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com/lokizorrilla"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Music Instagram (@lokizorrilla)"
-                  className="text-ink-soft hover:text-terracotta transition-colors"
-                >
-                  <MusicIcon className="w-6 h-6" />
                 </a>
               </li>
               <li>

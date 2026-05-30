@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { homeGrid, EMPTY_PREVIEW_TILES } from '@/lib/photos'
-import { InstagramIcon, MusicIcon, YoutubeIcon } from '@/components/Icons'
+import { InstagramIcon, YoutubeIcon } from '@/components/Icons'
 
 export const metadata: Metadata = {
-  title: 'Loki Zorrilla — Photographer & Musician',
-  description: 'Photography and music by Loki Zorrilla. Based in Oregon.',
+  title: 'Loki Zorrilla — Photographer',
+  description: 'Photography by Loki Zorrilla. Based in Oregon.',
 }
 
 export default function HomePage() {
@@ -18,7 +18,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-6 md:px-10 pt-6 md:pt-10 pb-20 md:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 items-center">
           {/* left: intro image */}
-          <div className="relative w-full aspect-[4/5] bg-sand-deep">
+          <div className="relative w-full aspect-[4/5] bg-sand-deep photo-frame">
             <Image
               src="/images/intro.jpeg"
               alt="Loki Zorrilla"
@@ -35,7 +35,7 @@ export default function HomePage() {
               Loki Zorrilla
             </h1>
             <p className="mt-4 font-display text-2xl md:text-3xl italic text-ink-soft">
-              Photographer &amp; Musician
+              Photographer
             </p>
             <p className="mt-2 text-sm md:text-base tracking-[0.2em] uppercase text-terracotta">
               Based in Oregon
@@ -47,21 +47,10 @@ export default function HomePage() {
                   href="https://instagram.com/capturedby.loki"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Photography Instagram (@capturedby.loki)"
+                  aria-label="Instagram (@capturedby.loki)"
                   className="text-ink-soft hover:text-terracotta transition-colors"
                 >
                   <InstagramIcon className="w-6 h-6" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com/lokizorrilla"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Music Instagram (@lokizorrilla)"
-                  className="text-ink-soft hover:text-terracotta transition-colors"
-                >
-                  <MusicIcon className="w-6 h-6" />
                 </a>
               </li>
               <li>
@@ -92,7 +81,7 @@ export default function HomePage() {
               ? previewPhotos.map((p, i) => (
                   <div
                     key={p.src + i}
-                    className="relative w-full aspect-[4/5] overflow-hidden bg-sand-deep"
+                    className="relative w-full aspect-[4/5] overflow-hidden bg-sand-deep photo-frame"
                   >
                     <Image
                       src={p.src}
@@ -107,7 +96,7 @@ export default function HomePage() {
                   /* TODO: Replace with real photo previews from /public/images/ */
                   <div
                     key={i}
-                    className="w-full aspect-[4/5] bg-sand-deep"
+                    className="w-full aspect-[4/5] bg-sand-deep photo-frame"
                     aria-hidden
                   />
                 ))}
@@ -116,55 +105,6 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Link
               href="/photography"
-              className="text-sm tracking-[0.2em] uppercase text-ink-soft border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
-            >
-              See more
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ───── music preview ───── */}
-      <section className="border-t border-line/60">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 md:pt-28 pb-10 md:pb-14">
-          <h2 className="font-display text-3xl md:text-4xl tracking-wide italic text-center mb-10">
-            Music
-          </h2>
-
-          <div className="flex flex-col items-center text-center">
-            {/* video thumbnail link */}
-            <Link
-              href="/music"
-              aria-label="Watch on the Music page"
-              className="group relative block w-full max-w-3xl aspect-video overflow-hidden"
-            >
-              <Image
-                src="/images/thumbnail.png"
-                alt="Music video thumbnail"
-                fill
-                sizes="(max-width: 768px) 100vw, 60vw"
-                className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              {/* play button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-sand/90 text-ink shadow-lg group-hover:bg-sand group-hover:scale-105 transition-all">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-7 h-7 md:w-8 md:h-8 translate-x-0.5"
-                    fill="currentColor"
-                    aria-hidden
-                  >
-                    <path d="M8 5v14l11-7L8 5z" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/music"
               className="text-sm tracking-[0.2em] uppercase text-ink-soft border-b border-transparent hover:border-terracotta hover:text-terracotta pb-0.5"
             >
               See more

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { InstagramIcon, MusicIcon, YoutubeIcon, MailIcon } from './Icons'
+import { InstagramIcon, YoutubeIcon, MailIcon } from './Icons'
 
 export default function Footer() {
   return (
@@ -17,21 +17,10 @@ export default function Footer() {
             href="https://instagram.com/capturedby.loki"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Photography Instagram (@capturedby.loki)"
+            aria-label="Instagram (@capturedby.loki)"
             className="text-ink-soft hover:text-terracotta transition-colors"
           >
             <InstagramIcon className="w-5 h-5" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://instagram.com/lokizorrilla"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Music Instagram (@lokizorrilla)"
-            className="text-ink-soft hover:text-terracotta transition-colors"
-          >
-            <MusicIcon className="w-5 h-5" />
           </a>
         </li>
         <li>

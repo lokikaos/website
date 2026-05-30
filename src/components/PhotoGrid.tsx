@@ -48,7 +48,7 @@ export default function PhotoGrid({ photos }: Props) {
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className="w-full aspect-[4/5] bg-sand-deep"
+            className="w-full aspect-[4/5] bg-sand-deep photo-frame"
             aria-hidden
           />
         ))}
@@ -66,7 +66,7 @@ export default function PhotoGrid({ photos }: Props) {
           <button
             key={p.src + i}
             onClick={() => setActiveIdx(i)}
-            className="reveal block w-full mb-4 md:mb-6 break-inside-avoid overflow-hidden group cursor-pointer"
+            className="reveal block w-full mb-4 md:mb-6 break-inside-avoid overflow-hidden group cursor-pointer photo-frame"
             style={{ transitionDelay: `${(i % 6) * 80}ms` }}
           >
             <div className="relative w-full" style={{ aspectRatio: `${p.width} / ${p.height}` }}>
