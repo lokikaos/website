@@ -18,7 +18,7 @@ export default function HomePage() {
       {/* ── top left: name ── */}
       <div className="corner-name">
         <h1 className="site-title">LOKI<br />ZORRILLA</h1>
-        <p className="name-sub">Music Technology @ University of Oregon</p>
+        <p className="name-sub">@ University of Oregon</p>
       </div>
 
       {/* ── top middle: image ── */}
